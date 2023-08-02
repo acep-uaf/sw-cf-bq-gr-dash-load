@@ -7,4 +7,5 @@ gcloud functions deploy sw-cw-bq-gr-dash-load \
   --memory 16384MB \
   --timeout 540s  \
   --trigger-topic sw-cf-gr-ld \
+  --vpc-connector projects/acep-ext-eielson-2021/locations/us-west1/connectors/vpc-connector-grafana \
   --set-env-vars PP_TABLE=vtndpp
