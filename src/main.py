@@ -1,3 +1,4 @@
+from google.cloud import storage
 from google.api_core.exceptions import Forbidden, BadRequest, GoogleAPICallError
 import logging
 import base64
@@ -19,6 +20,14 @@ def load_gr_dash(event, context):
         print(f'project_id : {project_id}')
         print(f'archive_bucket : {archive_bucket}')
         print(f'dash_id : {dash_id}')
+
+        # Read JSON from bucket
+        storage_client = storage.Client()
+        bucket = storage_client.bucket(archive_bucket)
+        blob = bucket.blob(dash_id)
+        json_content = json.loads(blob.download_as_text())
+
+        print(f'json_content : {json_content}')
 
  
         
