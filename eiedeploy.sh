@@ -2,6 +2,7 @@ gcloud functions deploy sw-cw-bq-gr-dash-load \
   --gen2 \
   --runtime=python311 \
   --region=us-west1 \
+  --service-account=untar-ingest@acep-ext-eielson-2021.iam.gserviceaccount.com \
   --source=src \
   --entry-point=load_gr_dash \
   --memory 16384MB \
