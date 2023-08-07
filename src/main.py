@@ -38,29 +38,6 @@ def load_gr_dash(event, context):
         for folder in folders:
             print(f"ID: {folder['id']}, Title: {folder['title']}")
      
-        # JSON Payload
-        payload = {
-            "dashboard": {
-                "title": "New Dashboard",
-                "schemaVersion": 16,
-                "version": 0
-            },
-            "folderId": 0,
-            "overwrite": False
-        }
-
-        # Send POST request
-        response = requests.post(create_dashboard_url, json=payload, headers=headers)
-
-        print(f'Status Code: {response.status_code}')
-        print(f'Response: {response.text}')  
-
-        # Check for errors
-        response.raise_for_status()
-
-        # Print or return the response
-        print(response.json())
-     
 
         pubsub_message = base64.b64decode(event['data']).decode('utf-8')
         message_dict = json.loads(pubsub_message)
@@ -76,10 +53,30 @@ def load_gr_dash(event, context):
         # Read JSON from bucket
         storage_client = storage.Client()
         bucket = storage_client.bucket(archive_bucket)
-        blob = bucket.blob(dash_id)
+        #blob = bucket.blob(dash_id)
+        blob = bucket.blob('dashlight.json')
         json_content = json.loads(blob.download_as_text())
 
         print(f'json_content : {json_content}')
+
+        # JSON Payload
+        payload = {
+            "dashboard": json_content,
+            "folderId": 3,
+            "overwrite": False
+        }
+
+        # Send POST request
+        response = requests.post(create_dashboard_url, json=payload, headers=headers)
+
+        print(f'Status Code: {response.status_code}')
+        print(f'Response: {response.text}')  
+
+        # Check for errors
+        response.raise_for_status()
+
+        # Print or return the response
+        print(response.json())
 
 
  
