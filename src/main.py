@@ -53,8 +53,7 @@ def load_gr_dash(event, context):
         # Read JSON from bucket
         storage_client = storage.Client()
         bucket = storage_client.bucket(archive_bucket)
-        #blob = bucket.blob(dash_id)
-        blob = bucket.blob('dashlight.json')
+        blob = bucket.blob(dash_id)
         json_content = json.loads(blob.download_as_text())
 
         print(f'json_content : {json_content}')
