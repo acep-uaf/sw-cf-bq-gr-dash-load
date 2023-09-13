@@ -1,12 +1,18 @@
+#!/bin/bash
+
+# Source the .env file
+source eiedeploy.env
+
+# Deploy the function
 gcloud functions deploy sw-cw-bq-gr-dash-load \
-  --gen2 \
-  --runtime=python311 \
-  --region=us-west1 \
-  --service-account=untar-ingest@acep-ext-eielson-2021.iam.gserviceaccount.com \
-  --source=src \
-  --entry-point=load_gr_dash \
-  --memory 16384MB \
-  --timeout 540s  \
-  --trigger-topic sw-cf-gr-ld \
-  --vpc-connector projects/acep-ext-eielson-2021/locations/us-west1/connectors/vpc-connector-grafana \
-  --set-env-vars PP_TABLE=vtndpp
+   --$GEN2 \
+   --runtime=$RUNTIME \
+   --region=$REGION \
+   --service-account=$SERVICE_ACCOUNT \
+   --source=$SOURCE \
+   --entry-point=$ENTRY_POINT \
+   --memory=$MEMORY \
+   --timeout=$TIMEOUT  \
+   --trigger-topic=$TRIGGER_TOPIC \
+   --vpc-connector=$VPC_CONNECTOR \
+   --set-env-vars PP_TABLE=$PP_TABLE
