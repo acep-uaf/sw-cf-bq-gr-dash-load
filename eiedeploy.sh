@@ -15,4 +15,4 @@ gcloud functions deploy sw-cw-bq-gr-dash-load \
    --timeout=$TIMEOUT  \
    --trigger-topic=$TRIGGER_TOPIC \
    --vpc-connector=$VPC_CONNECTOR \
-   --set-env-vars PP_TABLE=$PP_TABLE
+   --set-env-vars CREATE_DASHBOARD_URL=$CREATE_DASHBOARD_URL,LIST_FOLDERS_URL=$LIST_FOLDERS_URL,SECRET_NAME=$SECRET_NAME
