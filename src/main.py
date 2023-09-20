@@ -44,13 +44,15 @@ def load_gr_dash(event, context):
         bucket = storage_client.bucket(archive_bucket)
         blob = bucket.blob(dash_id)
         json_content = json.loads(blob.download_as_text())
+        folder_id_str = os.environ.get('FOLDER_ID')
+        folder_id = int(folder_id_str) if folder_id_str and folder_id_str.isdigit() else 0
 
         print(f'json_content : {json_content}')
 
         # JSON Payload
         payload = {
             "dashboard": json_content,
-            "folderId": 3,
+            "folderId": folder_id,
             "overwrite": True
         }
 
