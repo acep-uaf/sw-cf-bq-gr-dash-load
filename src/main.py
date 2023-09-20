@@ -4,15 +4,17 @@ import logging
 import base64
 import json
 import requests
-#import os
+import os
 
 def load_gr_dash(event, context):
     print(f'Received event: {event}')  
     logging.info(f'Received event: {event}')
     #grafana_url = "http://10.138.0.26:3000/api/health" # Replace with your Grafana internal IP and port
-    create_dashboard_url = "http://10.138.0.26:3000/api/dashboards/db"
+    #create_dashboard_url = "http://10.138.0.26:3000/api/dashboards/db"
+    create_dashboard_url = os.environ.get('CREATE_DASHBOARD_URL')
     secret_client = secretmanager.SecretManagerServiceClient()
-    secret_name = f"projects/675499914510/secrets/sw-gr-token/versions/1"
+    #secret_name = f"projects/675499914510/secrets/sw-gr-token/versions/1"
+    secret_name = os.environ.get('SECRET_NAME')
     secret_response = secret_client.access_secret_version(name=secret_name)
     secret_value = secret_response.payload.data.decode('UTF-8')
     #headers = {'Authorization': f'Bearer {secret_value}'}
@@ -27,8 +29,8 @@ def load_gr_dash(event, context):
         #print(f'Grafana Health Response: {response.json()}')
 
         # Define the URL to list folders
-        list_folders_url = "http://10.138.0.26:3000/api/folders"
-
+        #list_folders_url = "http://10.138.0.26:3000/api/folders"
+        list_folders_url = os.environ.get('LIST_FOLDERS_URL')
         # Send GET request to retrieve the folders
         response = requests.get(list_folders_url, headers=headers)
         response.raise_for_status()  # Check for errors
@@ -76,10 +78,7 @@ def load_gr_dash(event, context):
 
         # Print or return the response
         print(response.json())
-
-
- 
-        
+    
     except Forbidden as e:
         print(f'Forbidden error occurred: {str(e)}. Please check the Cloud Function has necessary permissions.')
         raise e
