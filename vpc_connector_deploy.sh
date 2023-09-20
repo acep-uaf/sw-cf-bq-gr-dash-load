@@ -1,4 +1,10 @@
-gcloud compute networks vpc-access connectors create vpc-connector-grafana \
-  --region=us-west1 \
-  --network=default \
-  --range=192.168.0.0/28
+#!/bin/bash
+
+# Source the .env file
+source vpc_connector.env
+
+# Create the VPC Access Connector
+gcloud compute networks vpc-access connectors create $CONNECTOR_NAME \
+  --region=$REGION \
+  --network=$NETWORK \
+  --range=$RANGE
