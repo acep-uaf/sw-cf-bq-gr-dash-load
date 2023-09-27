@@ -113,46 +113,46 @@ Replace `<value>` with the appropriate values for your deployment.
  
 Below are descriptions for each environment variable used in the deployment script:
 
-- **GEN2**=<value>:
+- **GEN2**=`<value>`:
   - Description: Specifies the generation of the Cloud Function to deploy. For example: gen2 when you intend to deploy a second generation Google Cloud Function.
 
-- **RUNTIME**=<value>:
+- **RUNTIME**=`<value>`:
   - Description: Specifies the runtime environment in which the Cloud Function executes. For example: python311 for Python 3.11.
 
-- **REGION**=<value>:
+- **REGION**=`<value>`:
   - Description: The Google Cloud region where the Cloud Function will be deployed and run. Example values are us-west1, europe-west1, etc.
 
-- **SERVICE_ACCOUNT**=<value>:
+- **SERVICE_ACCOUNT**=`<value>`:
   - Description: The service account email associated with the Cloud Function. This determines the permissions the Cloud Function will have.
 
-- **SOURCE**=<value>:
+- **SOURCE**=`<value>`:
   - Description: Path to the source code of the Cloud Function. Typically, this points to a directory containing all the necessary files for the function.
 
-- **ENTRY_POINT**=<value>:
+- **ENTRY_POINT**=`<value>`:
   - Description: Specifies the name of the function or method within the source code to be executed when the Cloud Function is triggered.
 
-- **MEMORY**=<value>:
+- **MEMORY**=`<value>`:
   - Description: The amount of memory to allocate for the Cloud Function. This is denoted in megabytes, e.g., 16384MB.
 
-- **TIMEOUT**=<value>:
+- **TIMEOUT**=`<value>`:
   - Description: The maximum duration the Cloud Function is allowed to run before it is terminated. Expressed in seconds, e.g., 540s.
 
-- **TRIGGER_TOPIC**=<value>:
+- **TRIGGER_TOPIC**=`<value>`:
   - Description: The Google Cloud Pub/Sub topic that triggers the Cloud Function when a message is published to it.
 
-- **VPC_CONNECTOR**=<value>:
+- **VPC_CONNECTOR**=`<value>`:
   - Description: Specifies the VPC connector that the Cloud Function uses to connect to services inside the VPC.
 
-- **SECRET_NAME**=<value>:
+- **SECRET_NAME**=`<value>`:
   - Description: The name of the secret in Google Secret Manager which holds sensitive data, like API keys or authentication tokens.
 
-- **CREATE_DASHBOARD_URL**=<value>:
+- **CREATE_DASHBOARD_URL**=`<value>`:
   - Description: The URL endpoint for the Grafana API to create or update a dashboard.
 
-- **LIST_FOLDERS_URL**=<value>:
+- **LIST_FOLDERS_URL**=`<value>`:
   - Description: The URL endpoint for the Grafana API to list all folders.
 
-- **FOLDER_ID**=<value>:
+- **FOLDER_ID**=`<value>`:
   - Description: The ID of the Grafana folder where the dashboard should be saved.
 
 ### Dependencies
