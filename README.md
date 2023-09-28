@@ -47,7 +47,7 @@ gcloud compute networks vpc-access connectors create $CONNECTOR_NAME \
 ### vpc_connector.env File Configuration
 Before deploying the Cloud Function, ensure that the `vpc_connector.env` file contains the necessary environment variables, as the deployment script sources this file. This file should define values for:
 
-```
+```bash
 CONNECTOR_NAME=<value>
 REGION=<value>
 NETWORK=<value>
