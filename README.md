@@ -1,5 +1,12 @@
 # SW-CW-BQ-GR-DASH-LOAD Cloud Function
 
+<br>
+
+Welcome to the `sw-cf-bq-gr-dash-load` repository. This component of the ACEP SW Data Pipeline is dedicated to the integration of the populated dashboard into Grafana, ensuring that insights are made readily available for stakeholders.
+
+For a comprehensive perspective on the whole data pipeline and this repository's role in it, please visit the [ACEP SW Data Pipeline Overview](https://github.com/acep-uaf/sw-stack) repository.
+
+
 The `sw-cw-bq-gr-dash-load` is a Cloud Function primarily designed to interface with Grafana API, automating the process of dashboard creation and management by reading JSON configurations from Google Cloud Storage. With integrated error handling and VPC connectivity, it operates seamlessly in a controlled and secure environment.
 
 ## Functionality Overview
