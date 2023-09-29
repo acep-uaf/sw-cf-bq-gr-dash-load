@@ -98,7 +98,7 @@ gcloud functions deploy sw-cw-bq-gr-dash-load \
 ### eiedeploy.env File Configuration
 Before deploying the Cloud Function, ensure that the eiedeploy.env file contains the necessary environment variables, as the deployment script sources this file. This file should define values for:
 
-```
+```bash
 GEN2=<value>
 RUNTIME=<value>
 REGION=<value>
@@ -167,7 +167,19 @@ Below are descriptions for each environment variable used in the deployment scri
 The Cloud Function relies on the Python packages listed in the `requirements.txt` file. These are crucial for interfacing with Google Cloud services and making external API calls and include the `google-api-core`, `google-cloud-storage`, and `google-cloud-secret-manager` packages.
 
 ## Conclusion
- `sw-cw-bq-gr-dash-gen` is a sophisticated Cloud Function tailored to interact with with Grafana, offering a streamlined, automated solution for dashboard management in the cloud.
+
+---
+
+The `sw-cf-bq-gr-dash-load` repository plays a pivotal role in the [ACEP SW Data Pipeline](https://github.com/acep-uaf/sw-stack) apparatus. Crafted as a Cloud Function in Python, it spearheads the integration of meticulously curated Grafana dashboards by assimilating them directly into Grafana, offering stakeholders immediate access to pertinent insights.
+
+Capitalizing on the orchestration of Google Cloud Storage, Secret Manager, and the Grafana API, this repository epitomizes streamlined automation. By adeptly fetching dashboard configurations from Cloud Storage and interfacing with the Grafana API, it accomplishes the swift creation and management of dashboards in a secure, error-resistant environment.
+
+We cordially beckon the open-source enthusiasts to dive deep into this repository, unravel its operations, and perhaps bestow their expertise for its evolution. For a comprehensive understanding of licensing, we direct you to the [LICENSE](https://github.com/acep-uaf/sw-cf-bq-pp/blob/main/LICENSE) file in the repository's root.
+
+Your exploration and engagement with this solution are highly valued. We're optimistic that integrating this functionality will vastly enrich your data transformation processes within the Google Cloud Platform.
+
+---
+
 
 
 
